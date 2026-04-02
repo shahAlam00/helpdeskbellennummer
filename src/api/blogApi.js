@@ -1,0 +1,13 @@
+const BASE_URL = "https://help-desk-backend-eosin.vercel.app/api";
+
+export const fetchBlogs = async () => {
+  const res = await fetch(`${BASE_URL}/blogs`);
+  if (!res.ok) throw new Error("Failed to fetch blogs");
+  return res.json();
+};
+
+export const BlogData = async (slug) => {
+  const res = await fetch(`${BASE_URL}/blogs/slug/${slug}`);
+  if (!res.ok) throw new Error("Failed to fetch blogs");
+  return res.json();
+};

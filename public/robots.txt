@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://helpdeskbellennummer.com/sitemap.xml

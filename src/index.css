@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+.menu-link {
+  @apply text-sm cursor-pointer text-muted-foreground hover:text-primary transition;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* Firefox ke liye */
+.scroll-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+@layer base {
+  :root {
+   
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+
+    --primary: 168 84% 40%;
+    --primary-foreground: 222 47% 5%;
+
+   
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 187 100% 50%;
+    --accent-foreground: 222 47% 5%;
+
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 15%;
+    --ring: 168 84% 40%;
+
+    --radius: 0.75rem;
+
+    --navy-deep: 222 47% 5%;
+    --navy-medium: 222 47% 11%;
+    --navy-light: 217 33% 17%;
+    --teal-glow: 168 84% 40%;
+    --cyan-bright: 187 100% 50%;
+    --success: 142 76% 45%;
+    --warning: 38 92% 50%;
+
+ 
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 5%) 0%, hsl(217 33% 12%) 50%, hsl(222 47% 8%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(217 33% 15%) 0%, hsl(222 47% 8%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(168 84% 40%) 0%, hsl(187 100% 50%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(168 84% 40% / 0.15) 0%, transparent 70%);
+
+ 
+    --shadow-glow: 0 0 40px -10px hsl(168 84% 40% / 0.4);
+    --shadow-card: 0 10px 40px -15px hsl(0 0% 0% / 0.5);
+    --shadow-button: 0 4px 20px -5px hsl(168 84% 40% / 0.5);
+
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 168 84% 40%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 168 84% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .hero-glow {
+    background: var(--gradient-glow);
+  }
+
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+ 
+  .button-glow {
+    box-shadow: var(--shadow-button);
+  }
+
+  .button-glow:hover {
+    box-shadow: 0 6px 30px -5px hsl(168 84% 40% / 0.7);
+  }
+
+
+  .text-gradient {
+    background: var(--gradient-button);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+
+  .shield-glow {
+    filter: drop-shadow(0 0 20px hsl(168 84% 40% / 0.5));
+  }
+
+
+  .border-glow {
+    position: relative;
+  }
+
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-button);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .border-glow:hover::before {
+    opacity: 1;
+  }
+
+
+  .section-divider {
+    background: linear-gradient(90deg, transparent, hsl(168 84% 40% / 0.3), transparent);
+    height: 1px;
+  }
+
+ 
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+ 
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(168 84% 40% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(168 84% 40% / 0.5); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(217 33% 20% / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(217 33% 20% / 0.3) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
